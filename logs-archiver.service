@@ -1,0 +1,8 @@
+[Unit]
+Description=Archive old logs when /LOGS is almost full
+Requires=logs-mount.service
+After=logs-mount.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/log_archiver.sh /LOGS 90
