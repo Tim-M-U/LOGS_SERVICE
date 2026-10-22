@@ -64,7 +64,7 @@ archive_dir() {
         first_ts="$(timestamp_of "${batch[0]}")"
         last_ts="$(timestamp_of "${batch[-1]}")"
         archive="$dir/${component}_archive_${first_ts}_${last_ts}.tar.gz"
-        2
+
         log "  [$component] archiving ${#batch[@]} file(s), $(mb "$freed") -> ${archive##*/}"
 
         if tar -czf "$archive" -C "$dir" -- "${batch[@]}" && tar -tzf "$archive" > /dev/null; then
